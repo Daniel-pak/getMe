@@ -1,0 +1,21 @@
+<ion-view title="Messages" id="page1">
+  <ion-content padding="true" style="background: url(img/wallpaper.jpg) no-repeat center;background-size:cover;" class="has-header">
+    <button id="messages-button4" style="border-radius:50px 50px 50px 50px;" class="button button-positive  button-block" ng-click="newChat()">New Conversation</button>
+    <button id="messages-button5" style="border-radius:50px 50px 50px 50px;" class="button button-positive  button-block">New Group</button>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar" ng-repeat="chat in activities" type="item-text-wrap" href="#/chats/{{chat.$id}}">
+        <div class="thumb-cover" ng-init="thumbs = (chat.face | split)">
+          <div ng-repeat="thumb in thumbs" ng-class= "{'single-thumb':thumbs.length==1,'thumb-big-left': $index==0, 'thumb-small-top': $index==1, 'thumb-small-bottom': $index==2}" style="background-image:url('{{thumb}}');"></div>
+        </div>
+        <h2>{{chat.name}}</h2>
+        <p>{{chat.lastText}}</p>
+
+        <span am-time-ago="chat.lastUpdate" class="item-note chat-list"></span>
+
+        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

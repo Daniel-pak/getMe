@@ -1,0 +1,136 @@
+<ion-view view-title="Settings">
+  <ion-content class="padding settingsPage">
+    <h3>Personal Information</h3>
+
+    <form name="personalInformationForm">
+      <div class="list personalInfo">
+        <label class="item item-input item-floating-label">
+          <span class="input-label royal">First Name</span>
+          <input type="text" ng-model="user.firstName" placeholder=" First Name"required>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label royal">Last Name</span>
+          <input type="text" ng-model="user.lastName" placeholder="Last Name" required>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label royal">Email Address</span>
+          <input type="text" ng-model="user.email" placeholder="email" required>
+        </label>
+        <label class="item item-input item-floating-label ">
+          <span class="input-label royal">Personal Phone</span>
+          <input type="text" ng-model="user.phone" placeholder="Personal Phone">
+        </label>
+        <label class="item item-input item-floating-label ">
+          <span class="input-label royal">Business Phone</span>
+          <input type="text" ng-model="user.phone_2" placeholder="Business Phone">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label royal">Personal Website</span>
+          <input type="text" ng-model="user.website_1" placeholder="Personal Website">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label royal">Other Website</span>
+          <input type="text" ng-model="user.website_2" placeholder="Other Website">
+        </label>
+      </div>
+    </form>
+    <!--
+            <ion-content>
+                <input type="file" id="file" name="file" />
+                <button ng-click="add()">Add</button>
+                <input type="file" name="file" onchange="angular.element(this).scope().uploadFile(this.files)" />
+            </ion-content>
+    -->
+    <br/>
+    <h3>Social Media</h3>
+    <div class="list socialMediaInfo">
+      <label class="item item-input item-floating-label"><i class="ion-social-facebook royal"></i>
+        <!--<span class="input-label">Facebook</span>-->
+        <input type="text" ng-model="user.facebook" placeholder="Facebook Profile">
+      </label>
+      <label class="item item-input item-floating-label "><i class="ion-social-twitter royal"></i>
+        <!--<span class="input-label">Twitter</span>-->
+        <input type="text" ng-model="user.twitter" placeholder="Twitter Handle">
+      </label>
+      <label class="item item-input item-floating-label"><i class="ion-social-linkedin royal"></i>
+        <!--<span class="input-label">LinkedIn</span>-->
+        <input type="text" ng-model="user.linkedIn" placeholder="LinkedIn Profile">
+      </label>
+      <label class="item item-input item-floating-label"><i class="ion-social-snapchat royal"></i>
+        <!--<span class="input-label">SnapChat</span>-->
+        <input type="text" ng-model="user.snapchat" placeholder="Snapchat Username">
+      </label>
+
+      <label class="item item-input item-floating-label "><i class="ion-social-instagram royal"></i>
+        <!--<span class="input-label">Instagram</span>-->
+        <input type="text" ng-model="user.instagram" placeholder="Instagram Username">
+      </label>
+      <label class="item item-input item-floating-label "><i class="ion-social-github royal"></i>
+        <!--<span class="input-label">Github</span>-->
+        <input type="text" ng-model="user.github" placeholder="Github Profile">
+      </label>
+      <label class="item item-input item-floating-label "><i class="ion-social-tumblr royal"></i>
+        <!--<span class="input-label royal">Tumblr</span>-->
+        <input type="text" ng-model="user.tumblr" placeholder="Tumblr.">
+      </label>
+      <label class="item item-input item-floating-label "><i class="ion-social-pinterest royal"></i>
+        <!--<span class="input-label">Pinterest</span>-->
+        <input type="text" ng-model="user.pinterest" placeholder="Pinterest Username">
+      </label>
+      <label class="item item-input item-floating-label "><i class="ion-social-reddit royal"></i>
+        <!--<span class="input-label">Reddit</span>-->
+        <input type="text" ng-model="user.reddit" placeholder="Reddit username">
+      </label>
+      <label class="item item-input item-floating-label "><i class="ion-social-skype royal"></i>
+        <!--<span class="input-label">Skype</span>-->
+        <input type="text" ng-model="user.skype" placeholder="Skype username">
+      </label>
+      <label class="item item-input item-floating-label "><i class="ion-social-vimeo royal"></i>
+        <!--<span class="input-label">Vimeo</span>-->
+        <input type="text" ng-model="user.vimeo" placeholder="Vimeo ">
+      </label>
+      <label class="item item-input item-floating-label "><i class="ion-social-wordpress royal"></i>
+        <!--<span class="input-label">Wordpress</span>-->
+        <input type="text" ng-model="user.wordpress" placeholder="Wordpress">
+      </label>
+      <label class="item item-input item-floating-label "><i class="ion-social-twitch royal"></i>
+        <!--<span class="input-label">Twitch</span>-->
+        <input type="text" ng-model="user.twitch" placeholder="Twitch username">
+      </label>
+
+      <label class="item item-input item-floating-label ">
+        <span class="input-label royal">Kik</span>
+        <input type="text" ng-model="user.kik" placeholder="Kik Username">
+      </label>
+
+      <label class="item item-input item-floating-label "><i class="ion-social-periscope royal"></i>
+        <span class="input-label">Periscope</span>
+        <input type="text" ng-model="user.periscope" placeholder="Periscope Username">
+      </label>
+      <label class="item item-input item-floating-label "><i class="ion-social-medium royal"></i>
+        <span class="input-label">Medium</span>
+        <input type="text" ng-model="user.medium" placeholder="Medium">
+      </label>
+      <label class="item item-input item-floating-label "><i class="ion-social-vine royal"></i>
+        <span class="input-label">Vine</span>
+        <input type="text" ng-model="user.vine" placeholder="Vine username">
+      </label>
+      <!--<label class="item item-input item-floating-label "><i class="ion-social-shots royal"></i>-->
+      <!--<span class="input-label">Shots</span>-->
+      <!--<input type="text" ng-model="user.shots" placeholder="Shots Username">-->
+      <!--</label>-->
+
+      <br/>
+    </div>
+    <div class="settingsSubmitBtn">
+      <button type="button" class="button button-royal button-outline" ng-disabled="personalInformationForm.$invalid"
+              ng-click="editUser(user)">Submit Changes
+      </button>
+    </div>
+    <div class="settingsSubmitBtn">
+      <button type="button" class="button button-royal button-outline" ng-disabled="personalInformationForm.$invalid"
+              ng-click="signOut()">Logout
+      </button>
+    </div>
+  </ion-content>
+</ion-view>

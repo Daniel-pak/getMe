@@ -1,0 +1,94 @@
+<ion-view view-title="Contact Detail">
+
+  <ion-content>
+
+    <ion-list>
+      <ion-item class="bar bar-royal">
+
+        <h1 class="title">{{contact.firstName}} {{contact.lastName}}</h1>
+      </ion-item>
+      <ion-item class="item item-divider"><h2>Personal Details</h2></ion-item>
+
+      <ion-item class="item-icon-left " ng-if="contact.email">
+        <i class="icon ion-email"></i>
+        {{contact.email}}
+        <span class="item-note">email</span>
+      </ion-item>
+        <ion-item class="item-icon-left " ng-if="contact.phone">
+          <a ng-href="tel: +1 {{contact.phone}}"><i class="icon ion-ios-telephone"></i>{{contact.phone}}
+          <span class="item-note">Mobile</span></a>
+        </ion-item>
+       <ion-item class="item-icon-left " ng-if="contact.phone_2">
+         <i class="icon ion-ios-telephone-outline"></i>{{contact.phone_2}}
+         <span class="item-note">Business Phone</span>
+       </ion-item>
+       <ion-item class="item-icon-left " ng-if="contact.website_1">
+         <i class="icon ion-ios-world"></i>{{contact.website_1}}
+         <span class="item-note">Personal Website</span>
+       </ion-item>
+       <ion-item class="item-icon-left " ng-if="contact.website_2">
+         <i class="icon ion-ios-world-outline"></i>{{contact.website_2}}
+         <span class="item-note">Other Website</span>
+       </ion-item>
+
+
+      <ion-item class="item item-divider"><h2>Social Media</h2></ion-item>
+
+        <ion-item class="item-icon-left " ng-if="contact.facebook"> <i class="icon ion-social-facebook"></i> {{contact.facebook }}</ion-item>
+        <ion-item class="item-icon-left " ng-if="contact.snapchat"><i class="icon ion-social-snapchat"></i>{{contact.snapchat }}</ion-item>
+        <ion-item class="item-icon-left " ng-if="contact.twitter"><i class="icon ion-social-twitter"></i> {{contact.twitter }}</ion-item>
+        <ion-item class="item-icon-left " ng-if="contact.linkedIn"><i class="icon ion-social-linkedin"></i> {{contact.linkedIn }}</ion-item>
+      <ion-item class="item-icon-left " ng-if="contact.instagram"><i class="icon ion-social-instagram"></i> {{contact.instagram}}</ion-item>
+     <ion-item class="item-icon-left " ng-if="contact.tumblr"><i class="icon ion-social-tumblr"></i> {{contact.tumblr }}</ion-item>
+      <ion-item class="item-icon-left " ng-if="contact.pinterest"><i class="icon ion-social-instagram"></i> {{contact.pinterest}}</ion-item>
+      <ion-item class="item-icon-left " ng-if="contact.reddit"><i class="icon ion-social-instagram"></i> {{contact.reddit}}</ion-item>
+       <ion-item class="item-icon-left " ng-if="contact.skype"><i class="icon ion-social-instagram"></i> {{contact.skype}}</ion-item>
+       <ion-item class="item-icon-left " ng-if="contact.vimeo"><i class="icon ion-social-instagram"></i> {{contact.vimeo}}</ion-item>
+       <ion-item class="item-icon-left " ng-if="contact.wordpress"><i class="icon ion-social-instagram"></i> {{contact.wordpress}}</ion-item>
+      <ion-item class="item-icon-left " ng-if="contact.twitch"><i class="icon ion-social-instagram"></i> {{contact.twitch}}</ion-item>
+      <!--<ion-item class="item-icon-left " ng-if="contact.google"><i class="icon ion-social-google"></i> {{contact.google}}</ion-item>-->
+
+      <ion-item class="item-icon-left " ng-if="contact.kik">
+        {{contact.kik}}
+        <span class="item-note">Kik</span>
+      </ion-item>
+       <ion-item class="item-icon-left " ng-if="contact.periscope">
+         {{contact.periscope}}
+         <span class="item-note">Periscope</span>
+       </ion-item>
+       <ion-item class="item-icon-left " ng-if="contact.medium">
+         <!--<i class="icon ion-social-instagram"></i> -->
+         {{contact.medium}}
+         <span class="item-note">Medium</span>
+       </ion-item>
+       <ion-item class="item-icon-left " ng-if="contact.vine">
+         <!--<i class="icon ion-social-instagram"></i> -->
+         {{contact.vine}}
+         <span class="item-note">Vine</span>
+       </ion-item>
+
+      <div class="buttonContainer">
+        <button class="button button-royal button-large button-outline icon ion-person" ng-click="updateShare(contact._id)">
+          Share Settings
+        </button>
+        <button class="button button-royal button-large button-outline icon ion-person"
+                ng-click="addConversation(user)"> <!--BROKEN?-->
+          New Chat
+        </button>
+      </div>
+
+<!--
+      <h1>Conversations</h1>
+      <div class="card" ng-click="getChat(chat._id)" ng-repeat="chat in chats track by $index">
+        <div class="convoheader item item-divider">
+          <h3><span ng-repeat="chatter in chat.users">{{chatter.firstName != user.firstName && chatter.firstName || ""}} </span></h3>
+        </div>
+        <div class="item item-text-wrap">
+          <h5>Most recent message: {{chat.messages[0].message}}</h5>
+        </div>
+      </div>
+-->
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

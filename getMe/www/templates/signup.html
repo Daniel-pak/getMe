@@ -1,0 +1,26 @@
+<ion-view view-title="MessagingApp" class="titleText">
+  <ion-content class="padding">
+    <div class="container">
+      <h3 class='text-center'>Sign up here</h3>
+        <label class="item item-input">
+          <input type="text" placeholder="First Name" class="form-control" ng-model="newUser.firstName" required>
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Last Name" class="form-control" ng-model="newUser.lastName">
+        </label>
+        <label class="item item-input">
+          <input type="email" placeholder="Email" class="form-control" ng-model="newUser.email" required>
+        </label>
+        <label class="item item-input">
+          <input type="password" placeholder="Password" class="form-control" ng-model="newUser.password" required>
+        </label>
+        <label class="item item-input">
+          <input type="password" class='form-control' placeholder="Type Your Password Again"
+                 ng-model="newUser.passwordRepeat" required>
+        </label>
+        <p style='color: red'>{{passwordText}}</p>
+        <button type='button' class="button button-balanced button-block" ng-disabled="signUpForm.$invalid"
+                ng-click="createNewUser(newUser)">Create me!</button>
+    </div>
+  </ion-content>
+</ion-view>

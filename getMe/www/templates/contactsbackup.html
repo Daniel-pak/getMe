@@ -1,0 +1,13 @@
+<ion-view title="Contacts">
+<ion-content>
+    <ion-refresher pulling-text="Pull to refresh list!" on-refresh="getContacts()"></ion-refresher>
+    <input type="text" placeholder="search" ng-model="searchFilter"/>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="contact in contacts | filter:searchFilter" type="item-text-wrap" ng-click="getContact(contact)">
+
+        <h2>{{contact.user.firstName}}</h2>
+
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

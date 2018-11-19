@@ -1,0 +1,279 @@
+<ion-view view-title="Connect" class="">
+      <ion-content padding="true" style="background: url(img/wallpaper.jpg) no-repeat center;background-size:cover;" class="has-header">
+        <h3 id="share-heading1" style="color:#FFFFFF;text-align:center;">Toggle what to share</h3>
+        <div id="share-markdown1" style="text-align:center;" class="show-list-numbers-and-dots">
+          <p style="color:#FFFFFF;">By default, only your
+            <strong>first name</strong> will be shared with your new contact</p>
+        </div>
+        <button id="share-button1" class="button button-positive  button-block" ng-click="reset()">Reset</button>
+        <ul class="list">
+            <li class="item item-toggle royal" ng-if="user.lastName.length">
+                Full Name
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="socialToggle.name" ng-true-value="1" ng-false-value="0">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+          <li class="item item-toggle royal" ng-if="user.email.length">
+                Email
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="socialToggle.em" ng-true-value="1" ng-false-value="0">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+          <li class="item item-toggle royal" ng-if="user.email_2.length">
+                Business Email
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="socialToggle.em2" ng-true-value="1" ng-false-value="0">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+          <li class="item item-toggle royal" ng-if="user.phone.length">
+                Mobile
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="socialToggle.ph1" ng-true-value="1" ng-false-value="0">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+          <li class="item item-toggle royal" ng-if="user.homeAddress.length">
+                Home Address
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="socialToggle.hAd" ng-true-value="1" ng-false-value="0">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+          <li class="item item-toggle royal" ng-if="user.businessAddress.length">
+                Business Address
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="socialToggle.bAd" ng-true-value="1" ng-false-value="0">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+          <li class="item item-toggle royal" ng-if="user.workAddress.length">
+                Work Address
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="socialToggle.wAd" ng-true-value="1" ng-false-value="0">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+          <li class="item item-toggle royal" ng-if="user.birthDate.length">
+                Birthday
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="socialToggle.bD" ng-true-value="1" ng-false-value="0">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+          <li class="item item-toggle royal" ng-if="user.website_1.length">
+                Personal Website
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="socialToggle.wb1" ng-true-value="1" ng-false-value="0">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+          <li class="item item-toggle royal" ng-if="user.website_2.length">
+                Other Website
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="socialToggle.wb2" ng-true-value="1" ng-false-value="0">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+
+          <li class="item item-toggle royal" ng-if="user.facebook.length">
+                Facebook
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="socialToggle.fb" ng-true-value="1" ng-false-value="0">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+
+            <li class="item item-toggle royal" ng-if="user.snapchat.length">
+                Snapchat
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="socialToggle.sc" ng-true-value="1" ng-false-value="0">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+
+            <li class="item item-toggle royal" ng-if="user.linkedIn.length">
+                LinkedIn
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="socialToggle.li" ng-true-value="1" ng-false-value="0">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+
+            <li class="item item-toggle royal" ng-if="user.twitter.length">
+                Twitter
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="socialToggle.tw" ng-true-value="1" ng-false-value="0">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+          <li class="item item-toggle royal" ng-if="user.instagram.length">
+                Instagram
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="socialToggle.in" ng-true-value="1" ng-false-value="0">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+          <li class="item item-toggle royal" ng-if="user.tumblr.length">
+                Tumblr
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="socialToggle.tmb" ng-true-value="1" ng-false-value="0">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+          <li class="item item-toggle royal" ng-if="user.github.length">
+                Github
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="socialToggle.gt" ng-true-value="1" ng-false-value="0">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+
+          <li class="item item-toggle royal" ng-if="user.pinterest.length">
+                Pinterest
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="socialToggle.pin" ng-true-value="1" ng-false-value="0">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+          <li class="item item-toggle royal" ng-if="user.reddit.length">
+                Reddit
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="socialToggle.red" ng-true-value="1" ng-false-value="0">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+          <li class="item item-toggle royal" ng-if="user.skype.length">
+                Skype
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="socialToggle.sky" ng-true-value="1" ng-false-value="0">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+          <li class="item item-toggle royal" ng-if="user.vimeo.length">
+                Vimeo
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="socialToggle.vim" ng-true-value="1" ng-false-value="0">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+          <li class="item item-toggle royal" ng-if="user.wordpress.length">
+                Wordpress
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="socialToggle.wp" ng-true-value="1" ng-false-value="0">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+          <li class="item item-toggle royal" ng-if="user.twitch.length">
+                Twitch
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="socialToggle.twt" ng-true-value="1" ng-false-value="0">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+          <li class="item item-toggle royal" ng-if="user.kik.length">
+                Kik
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="socialToggle.kik" ng-true-value="1" ng-false-value="0">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+          <li class="item item-toggle royal" ng-if="user.periscope.length">
+                Periscope
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="socialToggle.per" ng-true-value="1" ng-false-value="0">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+          <li class="item item-toggle royal" ng-if="user.medium.length">
+                Medium
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="socialToggle.med" ng-true-value="1" ng-false-value="0">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+          <li class="item item-toggle royal" ng-if="user.vine.length">
+                Vine
+                <label class="toggle toggle-royal">
+                    <input type="checkbox" ng-model="socialToggle.vin" ng-true-value="1" ng-false-value="0">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+
+        </ul>
+
+        <div class="codeContainer">
+            <qrcode data="{{qrcode._id}}&{{socialToggle.em}}{{socialToggle.name}}{{socialToggle.li}}{{socialToggle.fb}}{{socialToggle.tw}}{{socialToggle.in}}{{socialToggle.sc}}{{socialToggle.ph}}{{socialToggle.ph2}}{{socialToggle.wb1}}{{socialToggle.wb2}}{{socialToggle.gt}}{{socialToggle.tmb}}{{socialToggle.pin}}{{socialToggle.kik}}{{socialToggle.per}}{{socialToggle.med}}{{socialToggle.red}}{{socialToggle.sky}}{{socialToggle.twt}}{{socialToggle.vin}}{{socialToggle.vim}}{{socialToggle.wp}}{{socialToggle.em2}}{{socialToggle.hAd}}{{socialToggle.bAd}}{{socialToggle.wAd}}{{socialToggle.bD}}"
+                    version="2"
+                    error-correction-level="Q"
+                    size="200"></qrcode>
+        </div>
+        <br>
+        <br>
+        <div class="displayBtn">
+          <button id="share-button2" class="button button-positive  button-block" ng-click="shareQr()">Share &amp; Connect</button>
+        </div>
+    </ion-content>
+</ion-view>
+
+
+<!--<qrcode data="{{qrcode._id}}+{{socialToggle.fb}} + {{socialToggle.sc}} + {{socialToggle.li}} + {{socialToggle.tw}}"-->
+        <!--version="2"-->
+        <!--error-correction-level="Q"-->
+        <!--size="200"></qrcode>-->

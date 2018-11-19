@@ -1,0 +1,8 @@
+<nav class="navbar">
+    <ul>
+        <li ng-hide="UserService.isAuthenticated()"><a href="#/signup">Sign Up</a></li>
+        <li ng-hide="UserService.isAuthenticated()"><a href="#/login">Log In</a></li>
+        <li ng-show="UserService.isAuthenticated()"><a href="#/signout">Sign Out</a></li>
+        <li ng-show="UserService.isAuthenticated()"><a href="#/welcome">Welcome</a></li>
+    </ul>
+</nav>

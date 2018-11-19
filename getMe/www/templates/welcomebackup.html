@@ -1,0 +1,48 @@
+<ion-view hide-nav-bar="true" nav-transition="none">
+    <ion-content class="padding welcomePage" overflow-scroll="true">
+        <div class="list">
+            <h2 class="loggedInMsg">Logged in as, {{user.firstName}}!</h2>
+        </div>
+        <!--<button class='button button-royal button-large button-outline' ng-click='addConversation(userInput)'-->
+        <!--ng-disabled='contactForm.$invalid'>ADD-->
+        <!--</button>-->
+        <div class="buttonContainer">
+            <button class="button button-royal button-large button-outline icon ion-person"
+                    ng-click="shareToggle()">
+                SHARE
+            </button>
+            <button class='button button-royal button-large button-outline icon ion-eye' ng-click='scanQr()'> GET
+            </button>
+            <a href="#/contacts">
+                <button class="button button-royal button-large button-outline icon ion-person-stalker"> CONTACTS
+                </button>
+            </a>
+            <a href="#/settings">
+                <button class="button button-royal button-large button-outline icon ion-social-tux">
+                    SETTINGS
+                </button>
+
+            </a>
+        </div>
+        <div class="addByEmailContainer">
+            <label class="item item-input">
+                <input type='text' id="emailInput" placeholder='Add contact by email address' ng-model='userInput'
+                       required>
+            </label><span><button class="button button-royal button-small button-outline"
+                                  ng-click="addByEmail(userInput)">Add contact</button></span>
+        </div>
+        <h3>Conversations</h3>
+        <!--<button class='btn btn-default' ng-repeat='item in chats track by $index' ng-click='getChat(item._id)'>{{item._id}} </button>-->
+        <div class="card" ng-click="getChat(chat._id)" ng-repeat="chat in chats | orderBy: '-updatedAt' track by $index">
+            <div class="convoheader item item-divider">
+                <h4><span ng-repeat="chatter in chat.users">{{chatter.firstName != user.firstName &&
+                  chatter.firstName || ""}} </span></h4>
+            </div>
+            <div class="item item-text-wrap">
+                <h5>Most recent message: {{chat.messages[0].message}}</h5>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+
+

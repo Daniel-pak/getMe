@@ -1,0 +1,154 @@
+<ion-view title="Profile Settings" hide-back-button="true" id="page2" style="background-color:#7EC1CF;">
+  <ion-content padding="true" style="background: url(img/wallpaper.jpg) no-repeat center;background-size:cover;" class="has-header">
+    <h3 id="profileSettings-heading1" style="color:#000000;font-weight:300;text-align:center;">Personal Info</h3>
+
+    <form id="profileSettings-form1" name="personalInformationForm" class="list">
+
+      <label class="item item-input" id="profileSettings-input1">
+        <input type="text" placeholder="First Name" ng-model="user.firstName" required>
+        <span class="item-note" ng-if="user.firstName">First Name</span>
+      </label>
+
+      <label class="item item-input" id="profileSettings-input2">
+        <input type="text" placeholder="Last Name" ng-model="user.lastName" required>
+        <span class="item-note" ng-if="user.lastName">Last Name</span>
+      </label>
+
+      <label class="item item-input" id="profileSettings-input3">
+        <input type="email" placeholder="Personal Email" ng-model="user.email" required>
+        <span class="item-note" ng-if="user.lastName">email</span>
+      </label>
+
+      <label class="item item-input" id="profileSettings-input4">
+        <input type="email" placeholder="Business Email" ng-model="user.email_2">
+        <span class="item-note" ng-show="user.email_2">Business/Other email</span>
+      </label>
+      <label class="item item-input" id="profileSettings-input5">
+        <input type="text" placeholder="Home address" ng-model="user.homeAddress">
+        <span class="item-note" ng-show="user.homeAddress">Home</span>
+      </label>
+      <label class="item item-input" id="profileSettings-input6">
+        <input type="text" placeholder="Work address" ng-model="user.workAddress">
+        <span class="item-note" ng-show="user.workAddress">Work</span>
+      </label>
+      <label class="item item-input" id="profileSettings-input7">
+        <input type="text" placeholder="Business address" ng-model="user.businessAddress">
+        <span class="item-note" ng-show="user.businessAddress">Business</span>
+      </label>
+      <label class="item item-input" id="profileSettings-input8">
+        <input type="tel" placeholder="Mobile phone number" ng-model="user.phone">
+        <span class="item-note" ng-show="user.phone">Mobile Phone</span>
+      </label>
+      <label class="item item-input" id="profileSettings-input9">
+        <input type="tel" placeholder="Business Number" ng-model="user.phone_2">
+        <span class="item-note" ng-show="user.phone_2">Business Phone</span>
+      </label>
+      <label class="item item-input" id="profileSettings-input10">
+        <span class="input-label">Birth Date</span>
+        <input type="date" placeholder="Birth Date" ng-model="user.birthDate">
+      </label>
+
+      <h3 id="profileSettings-heading2" style="color:#000000;font-weight:300;text-align:center;">Social Info</h3>
+
+      <label class="item item-input item-icon-right" id="profileSettings-input11">
+        <i class="icon ion-social-facebook"></i>
+        <input type="text" placeholder="Facebook" ng-model="user.facebook">
+        <!--<span class="item-note" ng-show="user.facebook">Facebook</span>-->
+      </label>
+
+      <label class="item item-input item-icon-right" id="profileSettings-input12">
+        <i class="icon ion-social-twitter"></i>
+        <input type="text" placeholder="Twitter" ng-model="user.twitter">
+      </label>
+      <label class="item item-input item-icon-right" id="profileSettings-input13">
+        <i class="icon ion-social-linkedin"></i>
+        <input type="text" placeholder="LinkedIn" ng-model="user.linkedIn">
+      </label>
+      <label class="item item-input item-icon-right" id="profileSettings-input14">
+        <i class="icon ion-social-snapchat"></i>
+        <input type="text" placeholder="Snapchat" ng-model="user.snapchat">
+        <!--<span class="item-note" ng-show="user.[]"></span>-->
+      </label>
+      <label class="item item-input item-icon-right" id="profileSettings-input15">
+        <i class="icon ion-social-instagram"></i>
+        <input type="text" placeholder="Instagram" ng-model="user.instagram">
+        <!--<span class="item-note" ng-show="user.[]"></span>-->
+      </label>
+      <label class="item item-input item-icon-right" id="profileSettings-input16">
+        <i class="icon ion-social-github"></i>
+        <input type="text" placeholder="Github" ng-model="user.github">
+        <!--<span class="item-note" ng-show="user.[]"></span>-->
+      </label>
+      <label class="item item-input item-icon-right" id="profileSettings-input17">
+        <i class="icon ion-social-tumblr"></i>
+        <input type="text" placeholder="Tumblr" ng-model="user.tumblr">
+        <!--<span class="item-note" ng-show="user.[]"></span>-->
+      </label>
+      <label class="item item-input item-icon-right" id="profileSettings-input18">
+        <i class="icon ion-social-pinterest"></i>
+        <input type="text" placeholder="Pinterest" ng-model="user.pinterest">
+        <!--<span class="item-note" ng-show="user.[]"></span>-->
+      </label>
+      <label class="item item-input item-icon-right" id="profileSettings-input19">
+        <i class="icon ion-social-reddit"></i>
+        <input type="text" placeholder="Reddit" ng-model="user.reddit">
+        <!--<span class="item-note" ng-show="user.[]"></span>-->
+      </label>
+      <label class="item item-input item-icon-right" id="profileSettings-input20">
+        <i class="icon ion-social-skype"></i>
+        <input type="text" placeholder="Skype" ng-model="user.skype">
+        <!--<span class="item-note" ng-show="user.[]"></span>-->
+      </label>
+      <label class="item item-input item-icon-right" id="profileSettings-input21">
+        <i class="icon ion-social-vimeo"></i>
+        <input type="text" placeholder="Vimeo" ng-model="user.vimeo">
+        <!--<span class="item-note" ng-show="user.[]"></span>-->
+      </label>
+      <label class="item item-input item-icon-right" id="profileSettings-input22">
+        <i class="icon ion-social-wordpress"></i>
+        <input type="text" placeholder="Wordpress" ng-model="user.wordpress">
+        <!--<span class="item-note" ng-show="user.[]"></span>-->
+      </label>
+      <label class="item item-input item-icon-right" id="profileSettings-input23">
+        <i class="icon ion-social-twitch"></i>
+        <input type="text" placeholder="Twitch" ng-model="user.twitch">
+        <!--<span class="item-note" ng-show="user.[]"></span>-->
+      </label>
+      <label class="item item-input item-icon-right" id="profileSettings-input24">
+        <!--<i class="icon ion-social-twitch"></i>-->
+        <input type="text" placeholder="Kik" ng-model="user.kik">
+        <span class="item-note" ng-show="user.kik">Kik &nbsp</span>
+      </label>
+      <label class="item item-input item-icon-right" id="profileSettings-input25">
+        <!--<i class="icon ion-social-twitch"></i>-->
+        <input type="text" placeholder="Periscope" ng-model="user.periscope">
+        <span class="item-note" ng-show="user.periscope">Periscope &nbsp</span>
+      </label>
+      <label class="item item-input item-icon-right" id="profileSettings-input26">
+        <!--<i class="icon ion-social-twitch"></i>-->
+        <input type="text" placeholder="Medium" ng-model="user.medium">
+        <span class="item-note" ng-show="user.medium">Medium &nbsp</span>
+      </label>
+      <label class="item item-input item-icon-right" id="profileSettings-input27">
+        <!--<i class="icon ion-social-twitch"></i>-->
+        <input type="text" placeholder="Vine" ng-model="user.vine">
+        <span class="item-note" ng-show="user.vine">Vine &nbsp</span>
+      </label>
+
+
+
+    </form>
+
+    <div class="settingsSubmitBtn">
+      <button type="button" class="button button-royal button-outline" ng-disabled="personalInformationForm.$invalid"
+              ng-click="editUser(user)">Submit Changes
+      </button>
+    </div>
+
+    <div class="settingsSubmitBtn">
+      <button type="button" class="button button-royal button-outline" ng-disabled="personalInformationForm.$invalid"
+              ng-click="signOut()">Logout
+      </button>
+
+  </ion-content>
+</ion-view>

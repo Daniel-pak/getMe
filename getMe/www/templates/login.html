@@ -1,0 +1,28 @@
+<ion-view title="Login" hide-nav-bar="true" hide-back-button="true" cache-view="false" nav-transition="none" style="background-color:#0CA4A5;">
+  <ion-content padding="true" class="manual-ios-statusbar-padding" scroll="false">
+    <form id="login-form1" class="list">
+      <div class="spacer" style="width: 300px; height: 47px;"></div>
+      <h2 id="login-heading1" style="color:#FFFFFF;font-weight:300;text-align:center;">GetMe!</h2>
+      <div class="spacer" style="width: 300px; height: 39px;"></div>
+      <ion-list id="login-list1">
+        <label class="item item-input" id="login-input1">
+          <!--<span class="input-label" style="text-align: left">Email</span>-->
+          <input type="email" placeholder="Email" ng-model="user.email">
+        </label>
+        <label class="item item-input" id="login-input2">
+          <!--<span class="input-label" style="text-align: left">Password</span>-->
+          <input type="password" placeholder="Password" ng-model="user.password">
+        </label>
+        <span>{{passwordText}}</span>
+      </ion-list>
+      <div class="spacer" style="height: 40px;"></div>
+      <button id="login-button1" class="button button-stable button-block" style="border-radius:50px 50px 50px 50px; color: white;" ng-click="signInWithEmail(user)">Sign in</button>
+      <button id="login-button2" class="button button-dark button-block button-clear" ng-click="signUpWithEmail(user)">Or create an account</button>
+      <hr>
+      <br>
+      <h3 id="login-heading1" style="color:#FFFFFF;font-weight:300;text-align:center;">You may also sign in with:</h3>
+      <button id="login-button1" class="button button-stable button-block icon ion-social-google" style="border-radius:50px 50px 50px 50px; color: white; background-color: #db4437" ng-click="googleSignIn()"> Google</button>
+      <button id="login-button1" class="button button-stable button-block icon ion-social-facebook" style="border-radius:50px 50px 50px 50px; color: white; background-color: #3B5998" ng-click="FBLogin()"> Facebook</button>
+    </form>
+  </ion-content>
+</ion-view>

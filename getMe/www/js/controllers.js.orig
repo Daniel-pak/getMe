@@ -1,0 +1,293 @@
+angular.module('MainControllers', [])
+
+  .controller('loginController', function ($scope, UserService, $location) {
+    $scope.greeting = "Welcome!";
+    $scope.instructions = "Please login or tap signup to create an account.";
+    $scope.signIn = function (user) {
+      UserService.signInUser(user).then(function (response) {
+        // console.log(response);
+      })
+    }
+    $scope.signUp = function () {
+      $location.path('/signup')
+    }
+  })
+
+  .controller('ChatsCtrl', function ($scope, Chats) {
+    // With the new view caching in Ionic, Controllers are only called
+    // when they are recreated or on app start, instead of every page change.
+    // To listen for when this page is active (for example, to refresh data),
+    // listen for the $ionicView.enter event:
+    //
+    //$scope.$on('$ionicView.enter', function(e) {
+    //});
+    $scope.chats = Chats.all();
+    $scope.remove = function (chat) {
+      Chats.remove(chat);
+    };
+  })
+
+  .controller('ChatDetailCtrl', function ($scope, $stateParams, Chats) {
+    $scope.chat = Chats.get($stateParams.chatId);
+  })
+
+  .controller('AccountCtrl', function ($scope) {
+    $scope.settings = {
+      enableFriends: true
+    };
+  })
+
+  .controller("SignUpController", ["$scope", "UserService", "$location", function ($scope, UserService, $location) {
+
+    $scope.passwordText = "";
+    $scope.createNewUser = function (user) {
+      if (user.passwordRepeat !== user.password) {
+        $scope.passwordText = "Your passwords do not match! Please try again";
+      } else {
+        delete user.passwordRepeat;
+        UserService.createNewUser(user).then(function (response) {
+          $scope.newUser = {};
+          $location.path("/login");
+        })
+      }
+    }
+  }])
+
+  .controller("SignOutController", ["UserService", "$location", function (UserService, $location) {
+    $scope.signOut = function (user) {
+      UserService.signOut();
+      $location.path("/login");
+    }
+
+  }])
+
+
+  .controller('WelcomeController', ['$scope', '$localStorage', "ChatService", "$location", "UserService", "$cordovaBarcodeScanner", "$ionicPlatform", "$cordovaCamera", 'contactService', function ($scope, $localStorage, ChatService, $location, UserService, $cordovaBarcodeScanner, $ionicPlatform, $cordovaCamera, contactService) {
+
+    $scope.mySettings = function () {
+      $location.path('/settings')
+    }
+
+    $scope.addConversation = function (user) {
+      var users = [];
+      users.push($localStorage.user._id)
+      users.push(user)
+      var conversation = {};
+      conversation.users = users;
+
+      ChatService.addConversation(conversation)
+        .then(function (response) {
+          $location.path('/chat/' + response.data.conversation._id);
+        });
+    }
+    $scope.addContact = function (userInput) {
+      contactService.addContact(userInput)
+    }
+
+    $scope.getChat = function (conversationId) {
+      $location.path('/chat/' + conversationId)
+    }
+
+    $scope.user = $localStorage.user;
+    $scope.chats = $localStorage.user.conversations;
+    console.log($scope.chats);
+
+    UserService.getUser().then(function(response){
+      $scope.user = response.data.user;
+      $scope.chats = response.data.user.conversations;
+    })
+
+
+    $scope.signOut = function (user) {
+      UserService.signOut();
+    }
+
+    $scope.shareToggle = function () {
+      $location.path("/toggle");
+    };
+
+    $scope.scanQr = function () {
+      $ionicPlatform.ready(function () {
+        $cordovaBarcodeScanner.scan().then(function (imageData) {
+          $localStorage.getDatasetUser = imageData.text;
+        }, function (error) {
+          alert("error" + error);
+        });
+      });
+      return $location.path("/getShare");
+    };
+
+    $scope.addContact = function (id) {
+      contactService.addContact(id)
+    }
+  }])
+
+  .controller('ChatController', ['$scope', "$stateParams", 'ChatService', "UserService", function ($scope, $stateParams, ChatService, UserService) {
+
+    var users;
+    $scope.messages = [];
+    var id = $stateParams.id;
+    $scope.newMessage = "";
+
+    ChatService.getConversation(id).then(function (response) {
+      $scope.messages = response.data.messages
+      users = response.data.users;
+      for (var i = 0; i < users.length; i++) {
+        if (UserService.localUser()._id == users[i]._id) {
+          users.splice(i, 1);
+        }
+      }
+      $scope.messages = ChatService.sortMessages($scope.messages, UserService.localUser());
+    });
+
+    ChatService.connectToChatroom(id);
+
+    ChatService.socket.on('chat message', function (message) {
+      $scope.messages.push({
+        message: message.message,
+        createdAt: new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}),
+        status: ChatService.onEmitMessage(message.message)
+      });
+      $scope.$apply();
+    });
+    $scope.sendMessage = function (message) {
+      var msg = {
+        message: message,
+        room: id,
+        to: users
+      }
+      ChatService.sendMessage(msg);
+      ChatService.saveMessage(msg);
+      messageSubmit.reset();
+    }
+  }])
+
+  .controller("ShareToggleController", function ($scope, $localStorage, $location) {
+    $scope.qrcode = $localStorage.user;
+
+    $scope.shareQr = function () {
+      delete $localStorage.dataset;
+      $localStorage.dataset = $scope.qrcode._id + "&" + $scope.socialToggle.fb + $scope.socialToggle.sc + $scope.socialToggle.li + $scope.socialToggle.tw;
+      $location.path("/share");
+    }
+    $scope.socialToggle = {
+      fb: 0,
+      sc: 0,
+      li: 0,
+      tw: 0
+    }
+  })
+
+  .controller("GetShareController", function ($scope, $localStorage, $location, handshakeService) {
+    $scope.getOrigin = $localStorage.user;
+    $scope.socialToggle = {
+      fb: 0,
+      sc: 0,
+      li: 0,
+      tw: 0
+    }
+    $scope.getShareQr = function () {
+      $localStorage.getdataset = $scope.getOrigin._id + "&" + $scope.socialToggle.fb + $scope.socialToggle.sc + $scope.socialToggle.li + $scope.socialToggle.tw;
+
+      alert("Contact info exchanged!");
+
+      var currentUser = {
+        profileAccess: $localStorage.getdataset,
+        user: $localStorage.user._id,
+        nickName: "Test1"
+      };
+      alert('pre string splice');
+
+      var profileString = $localStorage.getDatasetUser.splice(0, $localStorage.getDatasetuser.indexOf("&"));
+
+      alert(profileString);
+
+      var newContact = {
+        profileAccess: $localStorage.getDatasetUser,
+        user: profileString,
+        nickName: "test2"
+      }
+      alert(currentUser);
+      alert(newContact);
+
+      handshakeService.handShake(currentUser, newContact)
+    }
+  })
+
+
+  .controller("ShareController", function ($scope, $location, $localStorage, UserService) {
+    $scope.dataset = UserService.qrDataset();
+  })
+
+  .controller('ContactsDetailController', ["$scope", "$location", "$localStorage", "UserService", "ChatService", "ContactsController", function ($scope, $location, $localStorage, UserService, ChatService) {
+    $scope.startChat = function () {
+
+      ChatService.addConversation(conversation).then(function (response) {
+        $location.path('/chat/' + response.data.conversation._id)
+      })
+    }
+  }])
+
+
+  .controller('ContactsController', ["$scope", "$location", "$localStorage", "contactService", function ($scope, $location, $localStorage, contactService) {
+
+    $scope.contacts = $localStorage.user.contacts
+
+
+    $scope.getContact = function (contact) {
+
+      contactService.getContact(contact).then(function (response) {
+        console.log(response)
+      })
+    }
+  }])
+
+  .controller("SettingsController", ["$scope", "$location", "$localStorage", "UserService", function ($scope, $location, $localStorage, UserService) {
+
+      contactService.setContact(contact) {
+
+    }
+        $location.path('/contactdetail')
+
+  }])
+
+
+  .controller('ContactDetailController', ["$scope", "$location", "$localStorage", "contactService", function($scope, $location, $localStorage, contactService){
+
+    $scope.contact = contactService.getContactDetail();
+
+    console.log($scope.contact)
+
+    contactService.getContact($scope.contact).then(function(response) {
+      $scope.contact = response;
+      console.log($scope.contact)
+    })
+
+  }])
+
+
+  .controller("SettingsController", ["$scope", "$location", "$localStorage", "UserService", function ($scope, $location, $localStorage, UserService) {
+
+
+    $scope.user = $localStorage.user;
+
+    $scope.editUser = function (user) {
+      var editedUser = {
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        snapchat: user.snapchat,
+        facebook: user.facebook,
+        linkedIn: user.linkedIn,
+        twitter: user.twitter
+      }
+      UserService.editUser(editedUser).then(function (response) {
+
+        console.log(response.data)
+        $localStorage.user = response.data;
+
+      })
+    }
+
+  }])
+

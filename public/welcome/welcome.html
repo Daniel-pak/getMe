@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <div class="col-s-12">
+            <h1>welcome {{user.email}}</h1>
+            <form name='contactForm' class='form-group' novalidate>
+            <input class='form-control' type='text' ng-model='user.contact' required>
+            <button class='btn btn-default' ng-click='addConversation(user)' ng-disabled='contactForm.$invalid'>add</button>
+            </form>
+            <div>
+               <h3>Conversations</h3>
+                <!--<button class='btn btn-default' ng-repeat='item in chats track by $index' ng-click='getChat(item._id)'>{{item._id}} </button>-->
+                <div style="border: 1px solid gray; margin-bottom: 5px; padding: 5px" ng-click="getChat(chat._id)" ng-repeat="chat in chats track by $index">
+                    <h5>Chat between: <span ng-repeat="user in chat.users">{{user.email}} </span></h5>
+                    <h6>Most recent message: {{chat.messages[0].message}}</h6>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</div>
+    

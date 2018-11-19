@@ -1,0 +1,21 @@
+<ion-view title="Contacts" hide-back-button="true" id="page4" style="background-color:#0892A5;">
+  <ion-content padding="true" style="background: url(img/wallpaper.jpg) no-repeat center;background-size:cover;" class="has-header">
+    <form id="contacts-form2" class="list">
+      <label class="item item-input" id="contacts-input12">
+        <input type="text" placeholder="Add new contact by email address" ng-model="userInput">
+      </label>
+      <button id="contacts-button4" style="border-radius:50px 50px 50px 50px;" class="button button-positive  button-block" ng-click="addByEmail(userInput)">ADD</button>
+    </form>
+    <ion-list id="contacts-list2">
+      <label class="item item-input" id="contacts-search2">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="search" placeholder="Search" ng-model="searchFilter"/>
+      </label>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="contact in contacts | filter:searchFilter" type="item-text-wrap" ng-click="getContact(contact)">
+        <img src="img/3GbfnKlAR0iR7nBLaMPw_avatar.png">
+        <h2>{{contact.user.firstName}}</h2>
+        <ion-option-button class="button-royal">Message</ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,24 @@
+<ion-view view-content="Chat">
+  <ion-content class="chatRoom">
+    <ion-row>
+      <div>
+      <div class='text-center item-text-wrap chatBox'>
+        <div class="card col-50" ng-class='{"col-offset-50": message.status == "received"}' ng-repeat="message in messages track by $index"> {{message.createdAt | date: 'shortTime'}}
+          {{message.message}}
+        </div>
+      </div>
+      </div>
+    </ion-row>
+    <ion-row class="col-sm-8 col-sm-offset-2 navbar-fixed-bottom">
+      <div class="list list-inset">
+        <form name="messageSubmit">
+          <label class="item item-input">
+          <input type="text" placeholder='type here' ng-model="newMessage" autofocus>
+          </label>
+          <button type="submit" style='visibility: hidden' class='btn btn-primary' ng-click="sendMessage(newMessage).focus()">Submit
+          </button>
+        </form>
+      </div>
+    </ion-row>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,19 @@
+<ion-view>
+    <ion-content>
+        <div class="container">
+            <div class="row">
+                <ul class='text-center'>
+                    <li ng-repeat="message in messages track by $index"> {{message.createdAt | date: 'shortTime'}} {{message.message}}</li>
+                </ul>
+            </div>
+            <div class="col-sm-8 col-sm-offset-2 navbar-fixed-bottom">
+                <div class="row">
+                    <form>
+                        <input type="text" placeholder='type here' ng-model="message" class="form-control">
+                        <button style='visibility: hidden' class='btn btn-primary' ng-click="sendMessage(message)">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
